@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模拟 Kimi · 思迹扩展测试页</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, "Microsoft YaHei", sans-serif; background: #f5f6f8; color: #24272d; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header { padding: 18px 24px; background: #fff; border-bottom: 1px solid #e3e5e9; }
+    header h1 { margin: 0 0 6px; font-size: 20px; }
+    header p { margin: 0; color: #6c717b; font-size: 13px; }
+    main { max-width: 880px; margin: 24px auto; padding: 0 18px; }
+    #messages { height: 480px; overflow-y: auto; padding: 20px; background: #fff; border: 1px solid #e0e2e7; border-radius: 14px; scroll-behavior: smooth; }
+    .message { max-width: 82%; margin: 0 0 18px; padding: 13px 16px; border-radius: 12px; line-height: 1.75; white-space: pre-wrap; }
+    .message.user, .message.user-message { margin-left: auto; background: #e9f0ff; }
+    .message.ai, .message.ai-message, .message.assistant { margin-right: auto; background: #f2f3f5; }
+    .message p { margin: 0 0 12px; }
+    .message p:last-child { margin-bottom: 0; }
+    .message-role { display: block; margin-bottom: 5px; color: #737985; font-size: 12px; font-weight: 600; }
+    #composer { margin-top: 16px; padding: 16px; background: #fff; border: 1px solid #dfe2e7; border-radius: 14px; }
+    #prompt-input { display: block; width: 100%; min-height: 112px; resize: vertical; padding: 12px; border: 1px solid #cfd3db; border-radius: 9px; font: inherit; line-height: 1.6; }
+    #prompt-input:focus { outline: 3px solid #dbe6ff; border-color: #587fcf; }
+    .composer-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; }
+    .composer-footer span { color: #747a85; font-size: 13px; }
+    #send-button { padding: 9px 22px; border: 0; border-radius: 8px; background: #376fd0; color: #fff; font: inherit; cursor: pointer; }
+    #send-button:hover { background: #2d5fb5; }
+    @media (max-width: 600px) { .message { max-width: 94%; } #messages { height: 58vh; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>模拟 Kimi <small>· demo</small></h1>
+    <p>仅供思迹扩展 content script 测试；演示评分是上下文融合示例，不是真实遗忘概率。</p>
+  </header>
+  <main>
+    <div id="messages" class="messages chat-history" role="log" aria-label="模拟对话消息区" aria-live="polite">
+      <article class="message user user-message" data-message-id="user-1"><span class="message-role">你</span>我最近在考虑要不要辞职做自由职业，但收入不稳定让我犹豫。</article>
+      <article class="message ai ai-message assistant" data-message-id="ai-1"><span class="message-role">Kimi（模拟）</span>可以先梳理自由职业的收入来源、最低生活成本和可承受的试错周期，再判断是否需要一个过渡阶段。</article>
+      <article class="message user user-message" data-message-id="user-2"><span class="message-role">你</span>我最舍不得的是现在的通勤，每天来回快三个小时，回家以后什么都不想做。</article>
+      <article class="message ai ai-message assistant" data-message-id="ai-2"><span class="message-role">Kimi（模拟）</span><p>通勤消耗和自由职业选择可能有关，但它们不必立刻被合并成一个“辞不辞职”的决定。你可以先区分：哪些问题来自当前工作安排，哪些来自职业本身，哪些来自收入和保障的不确定性。</p><p>例如，先记录一周里通勤前后精力变化，再估算如果远程办公或减少通勤天数，困扰会缓解多少。这些信息能帮助你判断真正需要改变的是岗位、工作方式，还是生活节奏。</p></article>
+      <article class="message user user-message" data-message-id="user-3"><span class="message-role">你</span>其实我以前写过一些县城青年的故事，一直想整理成一本小说，但总觉得准备不够。</article>
+      <article class="message ai ai-message assistant" data-message-id="ai-3"><span class="message-role">Kimi（模拟）</span><p>“准备不够”可能包含几个不同层面：素材还不够、结构还不清楚、担心写不好，或者还没有找到合适的发布时间。把这几件事拆开，会比笼统地等待准备好更容易行动。</p><p>你可以先选一个最想保留的人物或场景，写一篇不追求完整的短章。写完后标注哪些地方来自真实经验，哪些是虚构，哪些仍需查证。这样既能推进作品，也能看出缺口究竟在哪里。</p><p>如果县城经验与私人记忆紧密相关，还可以提前决定公开边界：哪些人物需要改写，哪些细节暂时不发表，哪些内容只留给自己。边界明确以后，写作时的顾虑可能会减少。</p><p>这是一种拆解示例，不是对你真实动机的判断。你可以保留其中有用的部分，也可以直接指出哪里不符合你的情况。</p></article>
+      <article class="message user user-message" data-message-id="user-4"><span class="message-role">你</span>我最怕写出来太私人，亲戚看到以后会对号入座。</article>
+      <article class="message ai ai-message assistant" data-message-id="ai-4"><span class="message-role">Kimi（模拟）</span><p>你可以把“写完”和“公开”分成两个决定。先写私密版本，不必在创作阶段就解决所有发表问题；之后再做一次专门的身份模糊化处理。</p><p>处理时可以合并人物、改变地点与职业、调整事件顺序，同时保留你真正想表达的情感关系。也可以请可信任但不在原社交圈里的读者检查，看哪些细节仍容易识别。</p></article>
+      <article class="message user user-message" data-message-id="user-5"><span class="message-role">你</span>如果先写一组散文呢？也许不用马上决定小说结构。</article>
+      <article class="message ai ai-message assistant" data-message-id="ai-5"><span class="message-role">Kimi（模拟）</span><p>先写散文可以成为一个低成本试验：每篇只处理一个人物、一段关系或一个场景。几篇之后，你再观察它们是否自然形成共同主题，以及是否仍需要小说这种形式。</p><p>为了保留选择空间，可以先设立三篇的小目标，不提前规定最终形态。完成后分别记录“最想继续的主题”“最难处理的人物”“仍不愿公开的内容”，再决定下一步。</p><p>这里的关键不是把散文当作小说的预备作业，而是让它本身也能成立。这样即使最后不成书，你仍然完成了三篇独立作品。</p><p>你还可以为每篇保留两个版本：完整私密版和可公开版。前者帮助你诚实表达，后者用于处理隐私边界，两个版本不必互相替代。</p></article>
+    </div>
+    <form id="composer">
+      <label for="prompt-input">给模拟 Kimi 发送消息</label>
+      <textarea id="prompt-input" name="prompt" class="chat-input" placeholder="在这里输入未发送草稿，停顿以测试扩展……"></textarea>
+      <div class="composer-footer">
+        <span>内容仅在此模拟页面内处理，不会发送到真实 Kimi。</span>
+        <button id="send-button" type="submit">发送</button>
+      </div>
+    </form>
+  </main>
+  <script>
+    (function () {
+      const form = document.getElementById('composer');
+      const input = document.getElementById('prompt-input');
+      const messages = document.getElementById('messages');
+      if (new URLSearchParams(location.search).has('autotest')) {
+        setTimeout(() => {
+          input.value = '我在思考怎样把原来的想法说清楚，但写到这里突然不知道下一句该怎么接。';
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+        }, 800);
+      }
+      let count = 6;
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+        const user = document.createElement('article');
+        user.className = 'message user user-message';
+        user.dataset.messageId = 'user-' + count;
+        user.textContent = text;
+        messages.appendChild(user);
+        const ai = document.createElement('article');
+        ai.className = 'message ai ai-message assistant';
+        ai.dataset.messageId = 'ai-' + count;
+        ai.textContent = '【模拟回答】你刚才写下的内容已经显示在消息区。此页面没有连接真实 AI，主要用于测试扩展的输入、停顿、回读历史与草稿交接。';
+        messages.appendChild(ai);
+        count += 1;
+        input.value = '';
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        messages.scrollTop = messages.scrollHeight;
+      });
+    })();
+  </script>
+</body>
+</html>

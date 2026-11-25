@@ -93,6 +93,7 @@ API 为 localhost 和回环地址来源设置 CORS 允许头。静态服务仅�
 node server/test-api.js
 node server/test-ai-service.js
 node app/test/run-tests.js
+node --test tests/cloud-deployment.test.js
 ```
 
 `test-api.js` 在实际监听的本地 HTTP 服务上使用 `fetch` 测试健康检查、静态页、全部 API、CORS、错误输入、请求体限制、中文路径和目录穿越，结束后关闭服务。
@@ -100,14 +101,22 @@ node app/test/run-tests.js
 `test-ai-service.js` 使用动态端口启动本地 mock OpenAI 与思迹服务，验证五个 API 成功路径、扩展候选来源、recall 证据保护、HTTP 错误回退、JSON 容错、坏 JSON 回退和超时回退；不访问真实外网，也不使用真实密钥。
 
 
-## Render 稳定部署
+## 云端部署
 
-项目根目录的 `render.yaml` 可直接用于 Render Blueprint 部署，无需 npm 依赖或 Docker：
+`server/api-core.js` 是本地 Node 与云端共用的 API 逻辑；`server/api-fetch.js` 提供标准 Web `Request → Response` 适配。未设置 `SIJI_API_KEY` 时仍是明确标注的本地规则演示，不需要模型额度。真实密钥只能填写在托管平台的服务端环境变量中。
 
-1. 将仓库推送到 GitHub；
-2. 在 Render 选择 **New → Blueprint**，连接该仓库；
-3. 使用现有 `render.yaml` 创建 Web Service；
-4. 部署完成后，用 `https://<服务名>.onrender.com/api/health` 检查状态；
-5. 在线 Demo 使用 `https://<服务名>.onrender.com/?v=boundary#/demo/delidata`，项目简介使用 `/project-brief.html`，真实录屏使用 `/watch-demo.html`。
+### Cloudflare Pages
 
-`HOST=0.0.0.0` 和 Render 分配的 `PORT` 已配置。未设置 `SIJI_API_KEY` 时仍是明确标注的本地规则演示，不需要模型额度。真实 AI 密钥只在 Render 的环境变量中填写，不能写入仓库。免费实例可能休眠，首次访问需要等待唤醒；因此正式演示前应提前打开健康检查。
+1. 在 Workers & Pages 创建应用，选择 Pages 并连接 `132fafh/siji-hackathon`；
+2. 构建命令填写 `node --version`，构建输出目录填写 `app`，不选择框架预设；
+3. `functions/api/[[path]].js` 提供五个演示 API 与健康检查，静态 `app/mock-kimi.html` 与插件模拟页保持同步；
+4. 部署后依次检查 `/api/health`、`/?v=boundary#/demo/delidata`、`/project-brief.html` 和 `/watch-demo.html`；
+5. 默认不配置密钥。需要真实模型时，才在 Pages 的服务端设置中添加 `SIJI_API_BASE / SIJI_API_KEY / SIJI_MODEL / SIJI_TIMEOUT_MS`。
+
+### Vercel 备用
+
+根目录的 `vercel.json` 已设置 `app` 为静态输出目录，`api/[...path].js` 复用同一个 Node 服务处理 API 和插件模拟页。导入仓库后不需要安装依赖，也不需要填写模型密钥。
+
+### Render 备用
+
+根目录的 `render.yaml` 可用于 Blueprint：Node 免费计划、`node --version` 构建、`node server/server.js` 启动，健康检查为 `/api/health`。`HOST=0.0.0.0` 和 Render 分配的 `PORT` 已配置。免费实例可能休眠，正式演示前应提前打开健康检查。

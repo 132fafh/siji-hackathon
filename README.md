@@ -154,7 +154,9 @@ node --test tests/delidata-starfall.test.js
 cd app
 node test/run-tests.js
 node --test test/*.test.js
-cd ../research/baseline
+cd ..
+node --test tests/cloud-deployment.test.js
+cd research/baseline
 node synthetic-smoke.js
 ```
 
