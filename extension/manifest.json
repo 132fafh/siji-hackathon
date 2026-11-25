@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "思迹：上下文融合演示助手",
+  "version": "0.2.0",
+  "description": "在支持的 AI 对话网站采集本地行为与上下文特征，展示可解释的演示评分，并按需交接草稿。",
+  "permissions": [
+    "storage",
+    "scripting",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "思迹站点设置",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "shared/trigger-engine.js",
+        "shared/site-adapters.js",
+        "content/popup.js",
+        "content/detector.js"
+      ],
+      "css": [
+        "content/popup.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "http://localhost:8141/*",
+        "http://127.0.0.1:8141/*"
+      ],
+      "js": [
+        "bridge/siji-bridge.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

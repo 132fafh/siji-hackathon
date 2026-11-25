@@ -1,0 +1,143 @@
+{
+  "case_id": "quantum-grid-research-001",
+  "title": "量子电网研究中的目标演化与 AI 纠偏",
+  "source": {
+    "path": "C:\\Users\\Lenovo\\Desktop\\量子电网项目_碰壁后对话与研究总结.md",
+    "type": "research_summary_not_verbatim_chat",
+    "line_count": 724,
+    "contains_timestamps": false,
+    "contains_keystrokes": false,
+    "contains_pause_events": false
+  },
+  "extraction": {
+    "method": "assistant_structured_summary",
+    "verbatim_unless_marked": false,
+    "suitable_for": [
+      "semantic_recall",
+      "idea_continuity",
+      "ai_deviation_analysis",
+      "evidence_status_classification"
+    ],
+    "unsuitable_for": [
+      "keystroke_model_training",
+      "pause_threshold_estimation",
+      "forgetting_probability_estimation"
+    ]
+  },
+  "goals": [
+    {
+      "id": "goal-initial",
+      "text": "回应老师对算法嵌入氢能混合能量优化管理模型内部运行的要求，同时补足接口、变量、单位、公式和运行环境信息。",
+      "status": "initial_external_requirement",
+      "evidence_lines": [35, 50]
+    },
+    {
+      "id": "goal-structure",
+      "text": "不再堆砌软件或做换皮项目，而是理解电网与量子计算，通过选择性抽象研究高维整体对象，先宏观抽象，再微观求解。",
+      "status": "user_defined_research_direction",
+      "evidence_lines": [97, 117]
+    },
+    {
+      "id": "goal-executable",
+      "text": "构建宏观上保持整体结构、微观上又能被量子计算机制备、演化、测量和读出的数学模型。",
+      "status": "refined_research_question",
+      "evidence_lines": [13, 31]
+    },
+    {
+      "id": "goal-sticky",
+      "text": "探索误差不能扩散但学习不能停止的模型：允许结构变化，但变化必须处于量子可执行形式所能接受的范围内。",
+      "status": "current_prototype_direction",
+      "evidence_lines": [500, 514]
+    }
+  ],
+  "documented_user_quotes": [
+    {
+      "id": "quote-architecture",
+      "text": "抽象式架构才是主体，其他内容只是完成它的步骤和可行性验证。",
+      "evidence_lines": [129, 131],
+      "note": "文档记录的用户原话，不是本次提取者改写"
+    },
+    {
+      "id": "quote-sticky",
+      "text": "误差不能扩散，但模型仍能学习；允许结构改变，但因量子计算机的计算形式有限，结构改变必须在可接受范围内。",
+      "evidence_lines": [504, 506],
+      "note": "文档记录的用户对“粘性”的定义"
+    }
+  ],
+  "events": [
+    {
+      "id": "event-mindmap-correction",
+      "type": "user_correction",
+      "target": "思维导图",
+      "ai_proposal": "按对话时间线组织项目结构。",
+      "user_correction": "应先有抽象化分层研究，再到选择性抽象、锚点架设与构建、可行性证明，最后寻找适合量子计算机的数学模型；抽象式架构才是主体。",
+      "research_value": "区分对话历史与研究对象本体。",
+      "evidence_lines": [119, 145]
+    },
+    {
+      "id": "event-hydrogen-result",
+      "type": "verified_result",
+      "route": "氢能拟合",
+      "result": "独立风电合并 RMSE 0.437672 kg/hour，R² 0.995825；四段线性模型只描述同一台 MC250 的已测工况。",
+      "status": "verified_but_scope_limited",
+      "must_not_claim": "可外推到其他设备、寿命阶段或完整调度。",
+      "evidence_lines": [52, 71]
+    },
+    {
+      "id": "event-cost-landscape",
+      "type": "rejected_route",
+      "route": "可行调度图与成本景观",
+      "verified_part": "六个场景可自洽计算；526 屏障公式在当前模型内经独立复核成立，最小屏障路径与穷举参考误差为 0。",
+      "user_correction": "成本景观不等于高维整体结构，研究再次滑向成本—优化—搜索，因此不再作为主线。",
+      "research_value": "计算结果成立不等于研究方向符合用户原意。",
+      "evidence_lines": [249, 325]
+    },
+    {
+      "id": "event-koopman-correction",
+      "type": "rejected_route",
+      "route": "整体演化算符 / DMD / Koopman",
+      "verified_part": "部分数据上出现迁移迹象，多块训练与归一化对照可复现。",
+      "user_correction": "当前做法仍是把数据套入已有数学结构，不是从第一性原理创造新结构，只能作为计算基线。",
+      "research_value": "拟合成功和迁移迹象不等于新数学模型。",
+      "evidence_lines": [327, 406]
+    },
+    {
+      "id": "event-qcbm-result",
+      "type": "mixed_result",
+      "route": "四比特 QCBM",
+      "result": "BE 独立测试略优于独立分布基线，DE 外部泛化失败；编码纠缠不等于电网物理纠缠。",
+      "status": "learned_some_joint_information_but_external_generalization_failed",
+      "evidence_lines": [410, 447]
+    },
+    {
+      "id": "event-sticky-result",
+      "type": "verified_result_with_tradeoff",
+      "route": "严格粘性局部 Pauli 哈密顿",
+      "result": "0.001 容差下最大绝对非局部误差降至 0.000964，独立测试 TV 0.281455；拟合未受损。",
+      "negative_part": "平均传播比未改善，DE 上普通模型更好；该容差只是当前实验平衡点。",
+      "evidence_lines": [516, 547]
+    },
+    {
+      "id": "event-depth-failure",
+      "type": "falsification_result",
+      "route": "粘性深度扩展",
+      "result": "0.001 阈值下深度 2 三个种子均无更新；深度相关预算中，深度 2 在 0.005 可恢复学习，深度 4 差于独立基线，深度 8 同时失去拟合优势和约束意义。",
+      "research_value": "证明深度不能简单堆叠，下一步应研究层间误差边界和浅层模块。",
+      "evidence_lines": [557, 591]
+    }
+  ],
+  "open_questions": [
+    "层间误差边界如何在保持学习能力的同时限制传播？",
+    "如果采用测量和重制备，如何描述其量子通道形式并计算相干性和测量成本？",
+    "浅层结构在更多区域、不同时间尺度和真实硬件条件下是否仍有意义？",
+    "宏观结构的物理意义是什么，能否超越拟合指标得到解释？",
+      "相对最佳经典方法，这种结构究竟提供了什么增量价值？"
+  ],
+  "explicit_nonclaims": [
+    "已提出普遍适用的新数学结构",
+    "已证明量子优势或端到端量子加速",
+    "已在真实 QPU 上验证",
+    "已完成老师模型内部集成",
+    "已达到一区或三区论文水平"
+  ]
+}

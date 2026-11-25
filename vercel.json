@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "outputDirectory": "app",
+  "functions": {
+    "api/[...path].js": {
+      "includeFiles": ["app/**", "server/**"]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/mock-kimi.html",
+      "destination": "/api/mock-kimi.html"
+    }
+  ]
+}

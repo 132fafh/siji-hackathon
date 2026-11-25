@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>思迹 · Demo 成片录制</title>
+<style>
+  *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#090d14;color:#e8eeec;font-family:system-ui,"Microsoft YaHei",sans-serif}main{width:min(1280px,100vw)}canvas{display:block;width:100%;height:auto;background:#080b12}footer{display:flex;align-items:center;gap:14px;padding:14px 18px;color:#9aabaa;font-size:14px}button{min-height:42px;padding:8px 18px;border:1px solid #52796f;border-radius:8px;background:#18352e;color:#eef6f2;font:inherit;cursor:pointer}button:disabled{opacity:.45;cursor:wait}#status{flex:1}code{color:#c6d8d2}
+</style>
+</head>
+<body>
+<main>
+  <canvas id="canvas" width="1280" height="720" aria-label="思迹 Demo 视频预览"></canvas>
+  <footer><button id="start" type="button" disabled>开始导出 2 分钟视频</button><span id="status">正在载入真实界面素材……</span></footer>
+</main>
+<script>
+(() => {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const button = document.getElementById('start');
+  const status = document.getElementById('status');
+  const sources = {
+    mock: 'demo-plugin-handoff.png',
+    star: 'demo-starfield.png',
+    map: 'demo-thought-map.png',
+    boundary: 'demo-boundary-control.png',
+    mobile: 'thought-map-mobile.png',
+  };
+  const slides = [
+    { duration: 8, kicker: 'SIJI · 思迹', title: '先留痕，再澄清，后回答', lines: ['AI 提问澄清与想法留痕工具', 'AI 提供镜子和候选，人始终保留判断权。'] },
+    { duration: 15, kicker: '01 · 从对话到留痕', title: '先保存原话，不急着生成答案', lines: ['插件在本地融合停顿、草稿与上下文信号；用户批准后，草稿才进入思迹。', '原始表达带时间戳保存，不可被 AI 覆盖。'], image: 'mock' },
+    { duration: 18, kicker: '02 · 公开案例星落', title: '让混乱有位置，也有回去的路径', lines: ['公开 DeliData 会话，无需账号或私人语料。', '每颗星来自可查看的原话；点击星点进入局部思维网络。'], image: 'star' },
+    { duration: 24, kicker: '03 · 连续思维扩展', title: '不是一次性堆节点，而是沿当前逻辑生长', lines: ['TextRank、个性化 PageRank、MMR 与重复拦截共同参与候选排序。', '新节点从父节点连续展开；接受、修改或拒绝，始终由人决定。'], image: 'map' },
+    { duration: 24, kicker: '04 · 用户控制扩展规模', title: '边界扩张总率上限：100%–500%', lines: ['待确认候选先占额度，拒绝后释放；接受后才计入当前扩张比例。', '达到上限时停止扩展，不再请求模型。'], image: 'boundary' },
+    { duration: 12, kicker: '05 · 同一流程，不同设备', title: '移动端与键盘操作都可完成', lines: ['触控、右键、长按与 Shift+F10 使用同一节点菜单。', '减少动态效果模式下直接呈现稳定布局。'], image: 'mobile', mobile: true },
+    { duration: 12, kicker: '06 · 本地优先与能力边界', title: '保留原话，也保留不确定', lines: ['历史保存在当前浏览器，可导出完整 Markdown 思考记录。', '默认是明确标注的本地启发式演示，不宣称真实遗忘检测、读心或高精度个性化。'] },
+    { duration: 7, kicker: 'SIJI · 思迹', title: '让想法留下轨迹，让判断留给人', lines: ['原话输入 → 轻量澄清 → 星落留痕 → 可控扩展 → 确认后回答'] },
+  ];
+  const images = {};
+  let recorder = null;
+  let startedAt = 0;
+  let previewStart = performance.now();
+  const total = slides.reduce((sum, slide) => sum + slide.duration, 0);
+
+  function wrap(text, x, y, maxWidth, lineHeight, options) {
+    const opts = options || {};
+    ctx.font = opts.font || '22px system-ui, "Microsoft YaHei", sans-serif';
+    ctx.fillStyle = opts.color || '#aebcb9';
+    ctx.textAlign = opts.align || 'left';
+    let line = '';
+    let row = 0;
+    for (const char of Array.from(text)) {
+      const test = line + char;
+      if (ctx.measureText(test).width > maxWidth && line) {
+        ctx.fillText(line, x, y + row * lineHeight);
+        line = char;
+        row += 1;
+      } else line = test;
+    }
+    if (line) ctx.fillText(line, x, y + row * lineHeight);
+    return row + 1;
+  }
+
+  function background(now) {
+    ctx.fillStyle = '#080b12';
+    ctx.fillRect(0, 0, 1280, 720);
+    const lights = [
+      [210 + Math.sin(now * 0.00011) * 35, 250, 310, '31,73,78'],
+      [1020 + Math.cos(now * 0.00009) * 42, 380, 360, '48,45,80'],
+      [660 + Math.sin(now * 0.00007) * 28, 680, 290, '33,65,61'],
+    ];
+    lights.forEach(([x, y, radius, color]) => {
+      const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+      gradient.addColorStop(0, `rgba(${color},0.24)`);
+      gradient.addColorStop(1, `rgba(${color},0)`);
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, 1280, 720);
+    });
+  }
+
+  function drawImage(image, box, progress) {
+    const { x, y, w, h } = box;
+    ctx.save();
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, h, 18);
+    ctx.clip();
+    ctx.fillStyle = 'rgba(4,7,12,0.88)';
+    ctx.fillRect(x, y, w, h);
+    const scale = Math.min(w / image.width, h / image.height) * (1 + progress * 0.012);
+    const width = image.width * scale;
+    const height = image.height * scale;
+    ctx.drawImage(image, x + (w - width) / 2, y + (h - height) / 2, width, height);
+    ctx.restore();
+    ctx.strokeStyle = 'rgba(155,190,180,0.18)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, h, 18);
+    ctx.stroke();
+  }
+
+  function draw(now, recordingTime) {
+    background(now);
+    const elapsed = recordingTime == null ? (now - previewStart) / 1000 : recordingTime;
+    let cursor = 0;
+    let index = slides.length - 1;
+    let slide = slides[index];
+    let local = slide.duration;
+    for (let i = 0; i < slides.length; i++) {
+      if (elapsed < cursor + slides[i].duration) {
+        index = i;
+        slide = slides[i];
+        local = elapsed - cursor;
+        break;
+      }
+      cursor += slides[i].duration;
+    }
+    const progress = Math.max(0, Math.min(1, local / slide.duration));
+    ctx.textBaseline = 'alphabetic';
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#88b5a7';
+    ctx.font = '600 19px system-ui, "Microsoft YaHei", sans-serif';
+    ctx.fillText(slide.kicker, 70, 62);
+    const titleSize = slide.image ? 38 : 48;
+    wrap(slide.title, 70, slide.image ? 116 : 155, 1140, titleSize * 1.35, { font: `500 ${titleSize}px system-ui, "Microsoft YaHei", sans-serif`, color: '#edf3ef' });
+    const lineStart = slide.image ? 174 : 240;
+    slide.lines.forEach((line, i) => wrap(line, 70, lineStart + i * 38, 1140, 30, { font: '21px system-ui, "Microsoft YaHei", sans-serif', color: '#aebcb9' }));
+    if (slide.image && images[slide.image]) {
+      if (slide.mobile) drawImage(images[slide.image], { x: 840, y: 218, w: 270, h: 440 }, progress);
+      else drawImage(images[slide.image], { x: 70, y: 236, w: 1140, h: 408 }, progress);
+    }
+    if (!slide.image) {
+      ctx.strokeStyle = 'rgba(132,181,166,0.22)';
+      ctx.beginPath();
+      ctx.moveTo(70, 330);
+      ctx.lineTo(420, 330);
+      ctx.stroke();
+      ctx.fillStyle = '#78958c';
+      ctx.font = '18px system-ui, "Microsoft YaHei", sans-serif';
+      ctx.fillText('原始表达不可覆盖 · AI 候选可以拒绝 · 空白允许保留', 70, 390);
+    }
+    ctx.fillStyle = '#647b75';
+    ctx.font = '15px system-ui, "Microsoft YaHei", sans-serif';
+    ctx.fillText('思迹 · 本地优先 · 真实界面演示', 70, 688);
+    ctx.textAlign = 'right';
+    ctx.fillText(`${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`, 1210, 688);
+    ctx.textAlign = 'left';
+    ctx.fillStyle = 'rgba(128,174,159,0.2)';
+    ctx.fillRect(0, 716, 1280, 4);
+    ctx.fillStyle = '#79aa99';
+    ctx.fillRect(0, 716, 1280 * Math.min(1, elapsed / total), 4);
+    const fade = Math.min(1, local / 0.65, (slide.duration - local) / 0.65);
+    if (fade < 1) {
+      ctx.fillStyle = `rgba(8,11,18,${1 - Math.max(0, fade)})`;
+      ctx.fillRect(0, 0, 1280, 720);
+    }
+  }
+
+  function preview(now) {
+    if (recorder) return;
+    draw(now);
+    requestAnimationFrame(preview);
+  }
+
+  function mimeType() {
+    const types = ['video/mp4;codecs=avc1.42E01E', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'];
+    return types.find((type) => MediaRecorder.isTypeSupported(type)) || '';
+  }
+
+  async function start() {
+    button.disabled = true;
+    const type = mimeType();
+    const extension = type.includes('mp4') ? 'mp4' : 'webm';
+    const stream = canvas.captureStream(30);
+    const chunks = [];
+    recorder = new MediaRecorder(stream, type ? { mimeType: type, videoBitsPerSecond: 5000000 } : { videoBitsPerSecond: 5000000 });
+    recorder.ondataavailable = (event) => { if (event.data.size) chunks.push(event.data); };
+    recorder.onstop = () => {
+      const blob = new Blob(chunks, { type: type || 'video/webm' });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a');
+      anchor.href = url;
+      anchor.download = `思迹-Demo-2分钟.${extension}`;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 30000);
+      status.textContent = `已导出 ${extension.toUpperCase()} · ${(blob.size / 1024 / 1024).toFixed(1)} MB`;
+      document.title = '已导出 · 思迹 Demo';
+      recorder = null;
+      previewStart = performance.now();
+      requestAnimationFrame(preview);
+    };
+    startedAt = performance.now();
+    recorder.start(1000);
+    status.textContent = `正在录制 02:00 · ${extension.toUpperCase()}`;
+    function frame(now) {
+      if (!recorder) return;
+      const elapsed = Math.min(total, (now - startedAt) / 1000);
+      draw(now, elapsed);
+      const remaining = Math.max(0, total - elapsed);
+      status.textContent = `正在录制 · 剩余 ${String(Math.floor(remaining / 60)).padStart(2, '0')}:${String(Math.ceil(remaining % 60)).padStart(2, '0')} · ${extension.toUpperCase()}`;
+      if (elapsed >= total) recorder.stop();
+      else requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  Promise.all(Object.entries(sources).map(([key, src]) => new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => { images[key] = image; resolve(); };
+    image.onerror = reject;
+    image.src = src;
+  }))).then(() => {
+    button.disabled = false;
+    status.textContent = `素材就绪 · ${mimeType().includes('mp4') ? 'MP4' : 'WebM'} · 1280×720 · 30 fps`;
+    button.addEventListener('click', start, { once: true });
+    requestAnimationFrame(preview);
+  }).catch((error) => { status.textContent = '素材载入失败：' + error.message; });
+})();
+</script>
+</body>
+</html>

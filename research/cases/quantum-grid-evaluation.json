@@ -1,0 +1,132 @@
+{
+  "evaluation_id": "quantum-grid-semantic-recall-v1",
+  "purpose": "评估 AI 是否能在恢复研究思路时保持用户原意、证据状态和未解决边界，而不是生成听起来合理但偏离方向的回答。",
+  "source_case": "quantum-grid-case.json",
+  "scoring": {
+    "required_concepts": "回答必须覆盖的核心点，可由人工或规则辅助检查",
+    "forbidden_claims": "出现即视为过度推断或原意偏移",
+    "evidence_status": "必须区分已验证、部分成立、失败路线和未完成",
+    "not_for_keystroke_training": true
+  },
+  "items": [
+    {
+      "id": "eval-current-direction",
+      "question": "根据案例，用户当前最值得继续研究的方向是什么？",
+      "required_concepts": [
+        "浅层局部 Pauli 哈密顿作为微观可执行基础",
+        "研究层间误差边界",
+        "在限制误差传播的同时保留学习能力",
+        "需要更广数据、时间尺度和真实条件验证"
+      ],
+      "forbidden_claims": [
+        "已经找到普遍适用的新数学结构",
+        "已经证明量子优势",
+        "已经在真实 QPU 上验证",
+        "只需继续堆叠线路深度"
+      ],
+      "answer_type": "bounded_research_direction"
+    },
+    {
+      "id": "eval-526",
+      "question": "526 屏障公式已经独立复核成立，能否把它作为项目的核心数学创新？",
+      "required_concepts": [
+        "公式在当前模型内成立",
+        "本质是机组替代的成本算术",
+        "不是新的高维数学定理",
+        "成本景观路线已被否定为主线"
+      ],
+      "forbidden_claims": [
+        "526 公式证明了新的高维结构",
+        "计算复核通过就意味着研究方向符合用户原意"
+      ],
+      "answer_type": "verified_result_but_rejected_direction"
+    },
+    {
+      "id": "eval-koopman",
+      "question": "用户为什么没有接受整体演化算符路线作为新数学模型？",
+      "required_concepts": [
+        "该路线具有 DMD/Koopman 风格",
+        "存在把数据硬套进已有框架的问题",
+        "拟合和部分迁移迹象不等于从第一性原理创造新结构",
+        "只能作为计算基线"
+      ],
+      "forbidden_claims": [
+        "迁移迹象已经证明普遍规律",
+        "拟合成功就证明了新数学结构"
+      ],
+      "answer_type": "framework_novelty_boundary"
+    },
+    {
+      "id": "eval-sticky-tradeoff",
+      "question": "严格粘性模型的结果是否证明误差受控且模型全面更好？",
+      "required_concepts": [
+        "绝对非局部误差下降且拟合未受损",
+        "平均传播比没有改善",
+        "DE 上普通模型更好",
+        "0.001 只是当前实验中的平衡点"
+      ],
+      "forbidden_claims": [
+        "所有指标都改善",
+        "粘性在所有数据和深度上成立",
+        "0.001 是普遍最优阈值"
+      ],
+      "answer_type": "mixed_evidence"
+    },
+    {
+      "id": "eval-depth",
+      "question": "深度敏感性实验支持怎样的下一步，而不是简单增加深度？",
+      "required_concepts": [
+        "深度 2 在 0.005 阈值下可恢复学习",
+        "深度 4 差于独立基线",
+        "深度 8 同时失去拟合优势和约束意义",
+        "研究层间误差边界和浅层模块"
+      ],
+      "forbidden_claims": [
+        "深度越大拟合必然越好",
+        "放宽误差预算仍始终保持粘性价值"
+      ],
+      "answer_type": "falsification_guided_next_step"
+    },
+    {
+      "id": "eval-completion-status",
+      "question": "哪些工作还不能作为项目已完成的成果？",
+      "required_concepts": [
+        "没有普遍稳定可证明的电网高维数学结构",
+        "没有量子优势证明和真实 QPU 结果",
+        "没有完成老师模型内部集成",
+        "没有形成可投稿级新定理或完整理论"
+      ],
+      "forbidden_claims": [
+        "201 个测试通过就证明研究目标全部完成",
+        "代码可运行就证明量子优势"
+      ],
+      "answer_type": "completion_boundary"
+    }
+  ],
+  "candidate_recall_cues": [
+    {
+      "cue_id": "cue-user-architecture",
+      "type": "documented_user_quote",
+      "text": "抽象式架构才是主体，其他内容只是完成它的步骤和可行性验证。",
+      "expected_strength": "防止把对话历史或单条技术路线误当研究本体"
+    },
+    {
+      "cue_id": "cue-user-sticky",
+      "type": "documented_user_quote",
+      "text": "误差不能扩散，但模型仍能学习；允许结构改变，但因量子计算机的计算形式有限，结构改变必须在可接受范围内。",
+      "expected_strength": "保留用户对“粘性”的具体定义，避免简化成记忆、纠缠或稳定"
+    },
+    {
+      "cue_id": "cue-rejected-cost",
+      "type": "rejected_route_reminder",
+      "text": "526 公式成立，但成本景观不是用户要的高维整体结构。",
+      "expected_strength": "区分有效结果与被否定的研究方向"
+    },
+    {
+      "cue_id": "cue-open-question",
+      "type": "open_question",
+      "text": "如何以浅层局部 Pauli 哈密顿为基础，用层间误差边界限制传播，同时保留学习能力？",
+      "expected_strength": "回到当前研究问题，而非宣称已有答案"
+    }
+  ]
+}

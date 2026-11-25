@@ -1,0 +1,1549 @@
+{
+  "inputFile": "D:\\Kimi\\siji-research\\baseline-sample.csv",
+  "target": "p_recall",
+  "sampleWeight": "session_seen",
+  "probabilityClip": [
+    0.000001,
+    0.999999
+  ],
+  "train": {
+    "sampleCount": 205844,
+    "totalWeight": 374539
+  },
+  "test": {
+    "sampleCount": 51241,
+    "totalWeight": 94032
+  },
+  "models": {
+    "constant": {
+      "parameters": {
+        "p": 0.9041061144500312
+      },
+      "fit": {
+        "method": "closed-form weighted mean"
+      },
+      "train": {
+        "weightedLogLoss": 0.31596608625357886,
+        "weightedBrier": 0.05200209250182015,
+        "weightedAuc": 0.5,
+        "sampleCount": 205844,
+        "totalWeight": 374539,
+        "positiveWeight": 338623,
+        "negativeWeight": 35916,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 205844,
+            "weight": 374539,
+            "meanPrediction": 0.9041061144495959,
+            "observedRecall": 0.9041061144500312
+          }
+        ]
+      },
+      "test": {
+        "weightedLogLoss": 0.3142458496548033,
+        "weightedBrier": 0.05074009034504607,
+        "weightedAuc": 0.5,
+        "sampleCount": 51241,
+        "totalWeight": 94032,
+        "positiveWeight": 85087,
+        "negativeWeight": 8945,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 51241,
+            "weight": 94032,
+            "meanPrediction": 0.904106114450441,
+            "observedRecall": 0.9048728092564249
+          }
+        ]
+      }
+    },
+    "exponential": {
+      "parameters": {
+        "a": 2.270858534983271,
+        "b": 0.9064346262938802,
+        "logLambda": -8.092627142058014,
+        "lambda": 0.0003057853593838566
+      },
+      "fit": {
+        "method": "Nelder-Mead",
+        "deterministicInitialization": [
+          2.2437045154907977,
+          -2.3025850929940455
+        ],
+        "regularization": 1e-7,
+        "objective": 0.31573051540698754,
+        "iterations": 76,
+        "evaluations": 158,
+        "converged": true,
+        "stopReason": "converged",
+        "limits": {
+          "maxIterations": 300,
+          "maxEvaluations": 1800,
+          "maxMs": 15000
+        }
+      },
+      "train": {
+        "weightedLogLoss": 0.31572345066573293,
+        "weightedBrier": 0.051959799963505755,
+        "weightedAuc": 0.5305177872814094,
+        "sampleCount": 205844,
+        "totalWeight": 374539,
+        "positiveWeight": 338623,
+        "negativeWeight": 35916,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 8,
+            "weight": 14,
+            "meanPrediction": 0.7948655073209114,
+            "observedRecall": 0.7857142857144286
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 17892,
+            "weight": 30854,
+            "meanPrediction": 0.8865399352351627,
+            "observedRecall": 0.8837427886173682
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 187944,
+            "weight": 343671,
+            "meanPrediction": 0.9056889858655018,
+            "observedRecall": 0.905939110370093
+          }
+        ]
+      },
+      "test": {
+        "weightedLogLoss": 0.3140562048484774,
+        "weightedBrier": 0.050709832438412324,
+        "weightedAuc": 0.5309933692764653,
+        "sampleCount": 51241,
+        "totalWeight": 94032,
+        "positiveWeight": 85087,
+        "negativeWeight": 8945,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 1,
+            "weight": 3,
+            "meanPrediction": 0.7947689218815922,
+            "observedRecall": 1
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 4293,
+            "weight": 7420,
+            "meanPrediction": 0.8859503243509307,
+            "observedRecall": 0.8853099730458324
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 46947,
+            "weight": 86609,
+            "meanPrediction": 0.9056954637996388,
+            "observedRecall": 0.906545509127229
+          }
+        ]
+      }
+    },
+    "power": {
+      "parameters": {
+        "a": 2.3820812295244966,
+        "b": 0.9154506623368388,
+        "logGamma": 3.477241290390439,
+        "gamma": 32.3702985321571,
+        "logBeta": -5.4758959612418385,
+        "beta": 0.004186475948952919
+      },
+      "fit": {
+        "method": "Nelder-Mead",
+        "deterministicInitialization": [
+          2.2437045154907977,
+          -0.6931471805599453,
+          0
+        ],
+        "regularization": 1e-7,
+        "objective": 0.3154237842378249,
+        "iterations": 129,
+        "evaluations": 252,
+        "converged": true,
+        "stopReason": "converged",
+        "limits": {
+          "maxIterations": 300,
+          "maxEvaluations": 1800,
+          "maxMs": 15000
+        }
+      },
+      "train": {
+        "weightedLogLoss": 0.31541900914236953,
+        "weightedBrier": 0.0519063249315077,
+        "weightedAuc": 0.5305177872814094,
+        "sampleCount": 205844,
+        "totalWeight": 374539,
+        "positiveWeight": 338623,
+        "negativeWeight": 35916,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 83882,
+            "weight": 152755,
+            "meanPrediction": 0.8940363149771474,
+            "observedRecall": 0.8941114857124166
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 121962,
+            "weight": 221784,
+            "meanPrediction": 0.9110388215458562,
+            "observedRecall": 0.9109899722252291
+          }
+        ]
+      },
+      "test": {
+        "weightedLogLoss": 0.3137508689602611,
+        "weightedBrier": 0.05065401158754837,
+        "weightedAuc": 0.5309933692764653,
+        "sampleCount": 51241,
+        "totalWeight": 94032,
+        "positiveWeight": 85087,
+        "negativeWeight": 8945,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 20700,
+            "weight": 38071,
+            "meanPrediction": 0.8940740383365433,
+            "observedRecall": 0.8955372855979684
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 30541,
+            "weight": 55961,
+            "meanPrediction": 0.9110381315387279,
+            "observedRecall": 0.9112238880649061
+          }
+        ]
+      }
+    },
+    "weibull": {
+      "parameters": {
+        "a": 6.989846826018936,
+        "b": 0.9990796601828096,
+        "logLambda": -11.999999999997973,
+        "lambda": 0.000006144212353340663,
+        "logK": -1.7314914829052164,
+        "k": 0.1770201903915187
+      },
+      "fit": {
+        "method": "Nelder-Mead",
+        "deterministicInitialization": [
+          2.2437045154907977,
+          -2.3025850929940455,
+          0
+        ],
+        "regularization": 1e-7,
+        "objective": 0.32783761274315315,
+        "iterations": 177,
+        "evaluations": 330,
+        "converged": true,
+        "stopReason": "converged",
+        "limits": {
+          "maxIterations": 300,
+          "maxEvaluations": 1800,
+          "maxMs": 15000
+        }
+      },
+      "train": {
+        "weightedLogLoss": 0.3278180271410125,
+        "weightedBrier": 0.054268216236531455,
+        "weightedAuc": 0.5305177872814094,
+        "sampleCount": 205844,
+        "totalWeight": 374539,
+        "positiveWeight": 338623,
+        "negativeWeight": 35916,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 12715,
+            "weight": 22066,
+            "meanPrediction": 0.7723814546614268,
+            "observedRecall": 0.8799963745128393
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 100104,
+            "weight": 184437,
+            "meanPrediction": 0.8580509144060251,
+            "observedRecall": 0.8986212094102605
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 93025,
+            "weight": 168036,
+            "meanPrediction": 0.9482319786621107,
+            "observedRecall": 0.9132923897260125
+          }
+        ]
+      },
+      "test": {
+        "weightedLogLoss": 0.32611989969462013,
+        "weightedBrier": 0.05303696009655182,
+        "weightedAuc": 0.5309933692764653,
+        "sampleCount": 51241,
+        "totalWeight": 94032,
+        "positiveWeight": 85087,
+        "negativeWeight": 8945,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 0,
+            "weight": 0,
+            "meanPrediction": null,
+            "observedRecall": null
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 3082,
+            "weight": 5431,
+            "meanPrediction": 0.771658240321467,
+            "observedRecall": 0.8845516479469789
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 24750,
+            "weight": 46077,
+            "meanPrediction": 0.8582801833220632,
+            "observedRecall": 0.8997113527356438
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 23409,
+            "weight": 42524,
+            "meanPrediction": 0.9479197324204018,
+            "observedRecall": 0.9130608597497927
+          }
+        ]
+      }
+    },
+    "hlr": {
+      "parameters": {
+        "theta": [
+          5.842092058853637,
+          -0.025867424219346763,
+          0.17102725029710059,
+          -0.9725879270244147,
+          0.28474831581362003
+        ],
+        "featureNames": [
+          "intercept",
+          "log1p_history_seen",
+          "log1p_history_correct",
+          "log1p_history_incorrect",
+          "log1p_session_seen"
+        ],
+        "standardization": {
+          "means": [
+            0,
+            2.231289515498029,
+            2.128228135305776,
+            0.6312945292644613,
+            1.2221957850107308
+          ],
+          "scales": [
+            1,
+            1.0246282821219095,
+            1.0230995975918054,
+            0.7755141465412235,
+            0.47425106754270324
+          ]
+        },
+        "halfLifeFormula": "h=2^(theta·x); p=2^(-t/h)"
+      },
+      "fit": {
+        "method": "full-batch Adam + Nelder-Mead refinement with best-parameter restore",
+        "deterministicInitialization": [
+          5.8718581494342255,
+          0,
+          0,
+          0,
+          0
+        ],
+        "initialization": "intercept from weighted mean time and recall; other coefficients zero",
+        "learningRate": 0.005,
+        "learningRateSchedule": "learningRate/(1+iteration/300)",
+        "l2": 0.0001,
+        "initialObjective": 0.6119815937307619,
+        "adamBestObjective": 0.5960079914762982,
+        "objective": 0.5959774381416119,
+        "lastObjective": 0.5960079914762982,
+        "bestIteration": 700,
+        "adamBestMaxAbsGradient": 0.0009624455392821747,
+        "iterations": 700,
+        "increasedLossIterations": 0,
+        "converged": true,
+        "stopReason": "iteration_limit",
+        "refinement": {
+          "method": "Nelder-Mead",
+          "objective": 0.5959774381416119,
+          "iterations": 193,
+          "evaluations": 356,
+          "converged": true,
+          "stopReason": "converged",
+          "limits": {
+            "maxIterations": 350,
+            "maxEvaluations": 2000,
+            "maxMs": 30000
+          }
+        },
+        "gradientCheck": {
+          "method": "central finite differences at initialization",
+          "step": 0.00001,
+          "analytic": [
+            0.0013998357568045883,
+            0.01890598922196072,
+            0.015623727018993415,
+            0.029542061118341584,
+            -0.009701527909796455
+          ],
+          "numeric": [
+            0.0013998360581801703,
+            0.018905989329631723,
+            0.015623726556945881,
+            0.029542061119602888,
+            -0.009701528169703266
+          ],
+          "maxAbsError": 4.6204753391398956e-10,
+          "maxRelativeError": 4.6204753391398956e-10,
+          "negativeGradientDirection": [
+            -0.0473844987049831,
+            -0.6399685230568656,
+            -0.5288638107005071,
+            -1,
+            0.328397124050804
+          ],
+          "analyticDirectionalDerivative": -0.0531564073063394,
+          "numericDirectionalDerivative": -0.05315640804748333,
+          "passed": true
+        },
+        "limits": {
+          "maxIterations": 700,
+          "maxMs": 45000,
+          "patience": 120
+        }
+      },
+      "train": {
+        "weightedLogLoss": 0.5959245917254553,
+        "weightedBrier": 0.07191811673908673,
+        "weightedAuc": 0.5497624611265018,
+        "sampleCount": 205844,
+        "totalWeight": 374539,
+        "positiveWeight": 338623,
+        "negativeWeight": 35916,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 1229,
+            "weight": 2026,
+            "meanPrediction": 0.04565073193143173,
+            "observedRecall": 0.8376110562685187
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 1232,
+            "weight": 2100,
+            "meanPrediction": 0.15207259474692353,
+            "observedRecall": 0.8657142857143036
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 1312,
+            "weight": 2398,
+            "meanPrediction": 0.2514991209790474,
+            "observedRecall": 0.8807339449541383
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 1589,
+            "weight": 2570,
+            "meanPrediction": 0.3513582648348462,
+            "observedRecall": 0.8700389105058485
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 2338,
+            "weight": 3631,
+            "meanPrediction": 0.453070894707698,
+            "observedRecall": 0.8774442302396169
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 3112,
+            "weight": 4907,
+            "meanPrediction": 0.5527460609218684,
+            "observedRecall": 0.8675361728143552
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 4753,
+            "weight": 7263,
+            "meanPrediction": 0.6541212290985394,
+            "observedRecall": 0.8738813162605047
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 7766,
+            "weight": 12476,
+            "meanPrediction": 0.753731931067071,
+            "observedRecall": 0.8763225392754207
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 16239,
+            "weight": 27291,
+            "meanPrediction": 0.8582062592491135,
+            "observedRecall": 0.8853468176321978
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 166274,
+            "weight": 309877,
+            "meanPrediction": 0.9842663838572338,
+            "observedRecall": 0.9096351132868855
+          }
+        ]
+      },
+      "test": {
+        "weightedLogLoss": 0.5981978827774305,
+        "weightedBrier": 0.07057102899529939,
+        "weightedAuc": 0.5447683058335261,
+        "sampleCount": 51241,
+        "totalWeight": 94032,
+        "positiveWeight": 85087,
+        "negativeWeight": 8945,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 304,
+            "weight": 512,
+            "meanPrediction": 0.04294642351862725,
+            "observedRecall": 0.8515625000000039
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 305,
+            "weight": 491,
+            "meanPrediction": 0.15481871021758886,
+            "observedRecall": 0.8411405295315907
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 310,
+            "weight": 573,
+            "meanPrediction": 0.25146574986889514,
+            "observedRecall": 0.8795811518324557
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 396,
+            "weight": 698,
+            "meanPrediction": 0.3522129031250613,
+            "observedRecall": 0.888252148997142
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 561,
+            "weight": 878,
+            "meanPrediction": 0.45078376261845,
+            "observedRecall": 0.8747152619590127
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 706,
+            "weight": 1155,
+            "meanPrediction": 0.5524408926134824,
+            "observedRecall": 0.8917748917748999
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 1162,
+            "weight": 1829,
+            "meanPrediction": 0.6523298054091023,
+            "observedRecall": 0.8578458173865602
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 1819,
+            "weight": 2863,
+            "meanPrediction": 0.754170518181965,
+            "observedRecall": 0.8815927348934846
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 3983,
+            "weight": 6697,
+            "meanPrediction": 0.8588584735923779,
+            "observedRecall": 0.8890548006570197
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 41695,
+            "weight": 78336,
+            "meanPrediction": 0.9842581956080345,
+            "observedRecall": 0.9097860498366032
+          }
+        ]
+      }
+    },
+    "hlr_scaled": {
+      "parameters": {
+        "a": 2.2951470294355234,
+        "b": 0.9084743197517734,
+        "theta": [
+          11.001974910910048,
+          0.08796206967330952,
+          0.6889168877182683,
+          -1.907348640597447,
+          1.2344048493746307
+        ],
+        "featureNames": [
+          "intercept",
+          "log1p_history_seen",
+          "log1p_history_correct",
+          "log1p_history_incorrect",
+          "log1p_session_seen"
+        ],
+        "standardization": {
+          "means": [
+            0,
+            2.231289515498029,
+            2.128228135305776,
+            0.6312945292644613,
+            1.2221957850107308
+          ],
+          "scales": [
+            1,
+            1.0246282821219095,
+            1.0230995975918054,
+            0.7755141465412235,
+            0.47425106754270324
+          ]
+        },
+        "halfLifeFormula": "h=2^(theta·x); p=b*2^(-t/h); b=sigmoid(a)"
+      },
+      "fit": {
+        "method": "full-batch Adam + Nelder-Mead refinement with best-parameter restore",
+        "deterministicInitialization": [
+          2.270858534983271,
+          11.146426672665623,
+          0,
+          0,
+          0,
+          0
+        ],
+        "initialization": "exact fitted-exponential equivalent: a=a_exp, theta0=log2(ln2/lambda_exp), other coefficients zero",
+        "nestedExponential": {
+          "lambda": 0.0003057853593838566,
+          "halfLife": 2266.776872367614,
+          "initialTrainLogLoss": 0.31572345066573293
+        },
+        "learningRate": 0.005,
+        "learningRateSchedule": "learningRate/(1+iteration/300)",
+        "l2": 0.0001,
+        "regularization": "L2 on non-intercept theta only; a and theta intercept unpenalized to preserve exponential fallback",
+        "initialObjective": 0.31572345066573293,
+        "adamBestObjective": 0.3151057391452616,
+        "objective": 0.31509768457107334,
+        "lastObjective": 0.3151057391452616,
+        "bestIteration": 700,
+        "adamBestMaxAbsGradient": 0.00007432036240874476,
+        "iterations": 700,
+        "increasedLossIterations": 0,
+        "converged": true,
+        "stopReason": "iteration_limit",
+        "refinement": {
+          "method": "Nelder-Mead",
+          "objective": 0.31509768457107334,
+          "iterations": 232,
+          "evaluations": 425,
+          "converged": true,
+          "stopReason": "converged",
+          "limits": {
+            "maxIterations": 350,
+            "maxEvaluations": 2000,
+            "maxMs": 30000
+          }
+        },
+        "gradientCheck": {
+          "method": "central finite differences at exponential-equivalent initialization",
+          "step": 0.00001,
+          "analytic": [
+            -4.557877207888971e-7,
+            -0.0000011214809335136481,
+            0.000007792422855818995,
+            -0.000026825119877149404,
+            0.00016475290024457365,
+            -0.00032486440221734066
+          ],
+          "numeric": [
+            -4.558797783715817e-7,
+            -0.0000011214751349797325,
+            0.000007792497203062965,
+            -0.000026825144883169113,
+            0.00016475243946878493,
+            -0.00032486469903059145
+          ],
+          "maxAbsError": 4.607757887265321e-10,
+          "maxRelativeError": 4.607757887265321e-10,
+          "negativeGradientDirection": [
+            0.0014030091252779555,
+            0.0034521508846738934,
+            -0.023986693533155138,
+            0.08257328194180805,
+            -0.5071435932040061,
+            1
+          ],
+          "analyticDirectionalDerivative": -0.00041082424367954514,
+          "numericDirectionalDerivative": -0.0004108243495393182,
+          "passed": true
+        },
+        "limits": {
+          "maxIterations": 700,
+          "maxMs": 45000,
+          "patience": 120
+        }
+      },
+      "train": {
+        "weightedLogLoss": 0.31481548067243165,
+        "weightedBrier": 0.05181792486054991,
+        "weightedAuc": 0.5654342115335917,
+        "sampleCount": 205844,
+        "totalWeight": 374539,
+        "positiveWeight": 338623,
+        "negativeWeight": 35916,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 7,
+            "weight": 8,
+            "meanPrediction": 0.032987017998491894,
+            "observedRecall": 0.5
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 7,
+            "weight": 8,
+            "meanPrediction": 0.1613535939451925,
+            "observedRecall": 0.75
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 18,
+            "weight": 21,
+            "meanPrediction": 0.255394721345177,
+            "observedRecall": 0.7142857142857143
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 25,
+            "weight": 29,
+            "meanPrediction": 0.3560776402546512,
+            "observedRecall": 0.6551724137930689
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 60,
+            "weight": 67,
+            "meanPrediction": 0.45315180051375753,
+            "observedRecall": 0.7014925373134329
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 133,
+            "weight": 146,
+            "meanPrediction": 0.5556243289958538,
+            "observedRecall": 0.7465753424657534
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 321,
+            "weight": 367,
+            "meanPrediction": 0.6604527503928105,
+            "observedRecall": 0.7983651226158066
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 1239,
+            "weight": 1457,
+            "meanPrediction": 0.7641627404590963,
+            "observedRecall": 0.8037062457103672
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 24699,
+            "weight": 33171,
+            "meanPrediction": 0.881982680912683,
+            "observedRecall": 0.8595158421512834
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 179335,
+            "weight": 339265,
+            "meanPrediction": 0.9076264402866995,
+            "observedRecall": 0.9091654016771558
+          }
+        ]
+      },
+      "test": {
+        "weightedLogLoss": 0.3133110413550815,
+        "weightedBrier": 0.05060225166056472,
+        "weightedAuc": 0.5574474199271383,
+        "sampleCount": 51241,
+        "totalWeight": 94032,
+        "positiveWeight": 85087,
+        "negativeWeight": 8945,
+        "calibration": [
+          {
+            "bin": 1,
+            "lower": 0,
+            "upper": 0.1,
+            "sampleCount": 1,
+            "weight": 1,
+            "meanPrediction": 0.09374942100231257,
+            "observedRecall": 1
+          },
+          {
+            "bin": 2,
+            "lower": 0.1,
+            "upper": 0.2,
+            "sampleCount": 2,
+            "weight": 2,
+            "meanPrediction": 0.14070170860991954,
+            "observedRecall": 1
+          },
+          {
+            "bin": 3,
+            "lower": 0.2,
+            "upper": 0.3,
+            "sampleCount": 3,
+            "weight": 4,
+            "meanPrediction": 0.24931653643774812,
+            "observedRecall": 0.5
+          },
+          {
+            "bin": 4,
+            "lower": 0.3,
+            "upper": 0.4,
+            "sampleCount": 5,
+            "weight": 5,
+            "meanPrediction": 0.35955397708662773,
+            "observedRecall": 0.8
+          },
+          {
+            "bin": 5,
+            "lower": 0.4,
+            "upper": 0.5,
+            "sampleCount": 15,
+            "weight": 24,
+            "meanPrediction": 0.47060397071370796,
+            "observedRecall": 0.7916666666667084
+          },
+          {
+            "bin": 6,
+            "lower": 0.5,
+            "upper": 0.6,
+            "sampleCount": 31,
+            "weight": 32,
+            "meanPrediction": 0.5547793050037034,
+            "observedRecall": 0.6875
+          },
+          {
+            "bin": 7,
+            "lower": 0.6,
+            "upper": 0.7,
+            "sampleCount": 61,
+            "weight": 66,
+            "meanPrediction": 0.6561310993856693,
+            "observedRecall": 0.7424242424242424
+          },
+          {
+            "bin": 8,
+            "lower": 0.7,
+            "upper": 0.8,
+            "sampleCount": 299,
+            "weight": 357,
+            "meanPrediction": 0.7620212376563824,
+            "observedRecall": 0.8179271708683556
+          },
+          {
+            "bin": 9,
+            "lower": 0.8,
+            "upper": 0.9,
+            "sampleCount": 5908,
+            "weight": 8005,
+            "meanPrediction": 0.8822552828277848,
+            "observedRecall": 0.866958151155536
+          },
+          {
+            "bin": 10,
+            "lower": 0.9,
+            "upper": 1,
+            "sampleCount": 44916,
+            "weight": 85536,
+            "meanPrediction": 0.9076441707063566,
+            "observedRecall": 0.909044145155258
+          }
+        ]
+      }
+    }
+  }
+}

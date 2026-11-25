@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+*.log
+*.zip
+tools/*.exe
+tools/edge-record-profile*/
+tools/recording-work/
+delivery/*.mp4
+delivery/*.webm
+.DS_Store

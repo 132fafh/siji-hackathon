@@ -1,0 +1,24 @@
+方向,文献,样本与任务,主要结果,证据性质,对思迹的用途,关键限制,链接
+概念,Rose 1980 Rigid Rules Inflexible Plans and the Stifling of Language,10名 UCLA 学生访谈及写作材料,写作阻塞可涉及僵硬规则和计划,概念近邻,支持区分持续写作阻塞与瞬时续接受阻,样本极小且非实验；不能解释所有断片,https://doi.org/10.2307/356589
+概念,Andreasen 1986 TLC,113名精神科患者的量表信度研究,blocking 描述想法完成前言语中断并由本人确认失去思路,概念近邻,借鉴“中断＋本人确认”的事件定义,临床语境；不可病理化普通用户,https://doi.org/10.1093/schbul/12.3.473
+概念,Smallwood & Schooler 2015 The science of mind wandering,走神综述,注意转向任务无关内容；测量以自报为核心,间接证据,区分“想别的事”与“仍在原任务但接不下”,行为指标不能独立给出无歧义标签,https://doi.org/10.1146/annurev-psych-010814-015331
+概念,Mortaheb et al. 2022 Mind blanking,36名成人静息 fMRI 与随机探针,思维空白自报呈不同状态和连接特征,间接证据,支持单独询问“无法报告内容”,小样本静息任务；不能由普通停顿推断空白,https://doi.org/10.1073/pnas.2200511119
+概念,Schwartz & Metcalfe 2011 TOT states,TOT 综述,TOT 是对提取过程的元认知体验而非提取失败本身,间接证据,区分“找不到词”与“无法续接论证”,主要针对词汇项目；不能推广到开放创意,https://doi.org/10.3758/s13421-010-0066-8
+记忆,Tulving & Pearlstone 1966 Availability versus accessibility,929名中学生的分类词表回忆,类别线索提高回忆；信息不可用不等于不可访问,经典间接证据,支持保留上下文线索,词表任务；不能证明完整原想法预先存在,https://doi.org/10.1016/S0022-5371(66)80048-8
+预测,Kuvar et al. 2022 Automatically detecting TUT during conversations using keystroke analysis,109名大学生人—人聊天；另65人与 ALICE 聊天,15秒随机森林 AUC .692；迁移 AUC .666,相邻任务直接证据,支持组合键击特征和跨会话验证,预测 TUT 而非回忆需求；标签噪声和样本限制,https://pmc.ncbi.nlm.nih.gov/articles/PMC9390119/
+预测,Kuvar et al. 2023 Partner Keystrokes,66人33组在线聊天与6次探针,部分特征仅5秒显著；R²约.006–.007；总体停顿不显著,相邻任务概念验证,提供窗口和反例；不能单靠停顿,样本小；对方预测；不能推广到本人或回忆需求,https://educationaldatamining.org/EDM2023/proceedings/2023.EDM-short-papers.19/index.html
+预测,Kuvar et al. 2023 Real-time TUT systematic review,42项实时 TUT 检测研究,眼动模型通常较强；多模态并非一致更好；泛化困难,系统综述,提醒先验证简单信号而非堆模态,不同任务和指标不可直接比较,https://doi.org/10.1145/3577190.3614126
+写作,Révész et al. 2019 Pausing and revision behaviors,30名高英语水平中文母语者；键击眼动和访谈,句间停顿常对应规划；词内词间停顿常对应编码,相邻任务直接证据,必须记录停顿位置和写作阶段,特定二语学习者；不能推广到所有中文用户,https://discovery.ucl.ac.uk/id/eprint/10068671/
+写作,Allen et al. 2016 Boredom and engagement during writing,44名大学生132个写作会话,键击与文本可预测会话级情感；高厌倦和高投入均可伴短停顿,相邻任务证据,说明停顿方向依赖标签和任务,会话级情感分类；不是实时回忆需求,https://files.eric.ed.gov/fulltext/ED585776.pdf
+线索,Tullis & Fraundorf 2022 Selecting self-generated cues,三个实验各34名大学生,本人选择线索优于未选择和随机线索,相邻任务直接证据,支持比较用户确认与未确认的 AI 候选,词表任务和短延迟,https://doi.org/10.3758/s13421-021-01245-3
+线索,Harris & O’Connor 2023 On the Same Wavelength,伴侣与陌生人自传体记忆线索实验,亲密他人的个性化线索可接近本人线索；陌生人较弱,间接证据,效果取决于个性化与共享经验而非来源标签,主要测提取方式与丰富度；非 AI 复述,https://doi.org/10.1037/mac0000030
+线索,Wheeler-Mundy et al. 2024 Self-Generated Cues cue quality,170名大学生观看事件并延迟回忆,概念图和事件线优于他人关键词；单纯自生成关键词未显著占优,相邻任务直接证据,提示比较结构化事件线并保留无提示基线,学生单一事件和一天延迟,https://researchportal.port.ac.uk/files/92413774/Self-generated_cues.pdf
+线索,Smith & Vela 2001 Environmental Context-Dependent Memory,75个实验93个效应量的元分析,环境情境效应约 d=0.28；强线索可能遮蔽情境收益,元分析间接证据,可测试上下文重建但预期小效应,物理环境和词表任务；不是数字写作,https://doi.org/10.3758/BF03196157
+AI风险,Pataranutaporn et al. 2025 Slip Through the Chat,180人五种摘要/聊天条件,误导聊天错误记忆报告约为对照2.92倍,AI 风险近直接证据,支持监测 AI 新增命题与来源误归因,故意注入错误信息；不能推断忠实复述同样有害,https://doi.org/10.1145/3708359.3712112
+AI风险,Tversky & Marsh 2000 Biased retellings,四个实验共319名大学生,复述立场影响后续原始故事回忆和错误方向,机制间接证据,研究重点、因果和立场重组风险,实验者故事和立场复述；不是个人想法,https://pubmed.ncbi.nlm.nih.gov/10692232/
+干预,Adamczyk & Bailey 2004 If Not Now When,16名学生多任务受控打断实验,最佳断点恼怒低于最差56%和随机43%,相邻任务直接实验,优先任务断点并测量主观打扰,小样本强制全屏打断；绩效未显著改善,https://hci.rwth-aachen.de/materials/conferences/CHI2004/1p271.pdf
+干预,Iqbal & Bailey 2008 Intelligent Notification Management,16人编程和图形编辑任务,断点通知降低部分挫折；相关内容反应更快；恢复时间未改善,相邻任务直接实验,区分断点与内容价值；设置延迟上限,样本小；断点识别有限；不能承诺生产率提升,https://interruptions.net/literature/Iqbal-CHI08.pdf
+干预,Fogarty et al. 2005 Predicting Human Interruptibility,4名行政人员602小时记录及自报；40名估计者,传感器模型可估计高度不可打断状态,相邻任务预测证据,支持保守阈值和协商式进入,人工模拟传感器；样本窄；未部署干预,https://doi.org/10.1145/1057237.1057243
+个性化,Pejovic & Musolesi 2014 InterruptMe,两周上下文研究及一个月 N-of-1 部署,通用模型起步并随个人反馈在线更新有潜力,现场部署相邻证据,支持有边界的在线调整,个性化以天和周计；不能证明分钟级会话内有效,https://www.mircomusolesi.org/papers/ubicomp14.pdf
+干预,Intille et al. 2016 μEMA,4周组间试验比较手表单题与手机题组,单题微交互提高回答率并缩短操作时间,负担直接证据,提示应一瞥可懂且一次点击完成,小样本设备新颖；未证明高频不影响主任务,https://pmc.ncbi.nlm.nih.gov/articles/PMC6143290/
+框架,Nahum-Shani et al. 2018 JITAI design principles,移动健康及时自适应干预综述,明确决策点、干预选项、个体化变量和无干预选项,设计框架,将不提示和疲劳监控写入决策系统,健康领域框架；不是回忆干预效果证据,https://pmc.ncbi.nlm.nih.gov/articles/PMC5364076/

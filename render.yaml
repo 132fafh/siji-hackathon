@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: siji-hackathon
+    runtime: node
+    plan: free
+    buildCommand: node --version
+    startCommand: node server/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: SIJI_API_BASE
+        value: https://api.openai.com/v1
+      - key: SIJI_MODEL
+        value: gpt-4o-mini
+      - key: SIJI_TIMEOUT_MS
+        value: 15000
+      - key: SIJI_API_KEY
+        sync: false

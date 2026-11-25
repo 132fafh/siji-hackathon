@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>思迹站点设置</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <h1>思迹站点设置</h1>
+    <p id="site-name" class="site-name">正在读取当前站点……</p>
+    <p id="site-host" class="site-host"></p>
+    <p id="site-status" class="site-status" role="status"></p>
+    <button id="toggle-site" type="button" disabled>切换启用状态</button>
+    <p class="privacy-note">主流 AI 站点默认可用。其他站点只有手动启用后才分析输入行为；草稿仅在本机保存，点击批准后才交接。</p>
+    <a href="http://localhost:8141/#/demo/delidata" target="_blank" rel="noreferrer">打开 DeliData 公开演示</a>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

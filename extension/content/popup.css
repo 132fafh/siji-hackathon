@@ -1,0 +1,357 @@
+.siji-overlay[hidden] {
+  display: none !important;
+}
+
+.siji-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 16px;
+  background: rgba(31, 35, 40, 0.38);
+  color: #1f2328;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  color-scheme: light;
+}
+
+.siji-overlay *,
+.siji-overlay *::before,
+.siji-overlay *::after {
+  box-sizing: border-box;
+}
+
+.siji-dialog {
+  width: 312px;
+  max-width: 100%;
+  max-height: 80vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #d1d9e0;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(31, 35, 40, 0.22);
+  outline: none;
+  overscroll-behavior: contain;
+}
+
+.siji-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  min-height: 52px;
+  padding: 4px 6px 0 14px;
+}
+
+.siji-title {
+  min-width: 0;
+  margin: 0;
+  color: #1f2328;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.siji-close {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #59636e;
+  font: 22px/28px Arial, sans-serif;
+  cursor: pointer;
+}
+
+.siji-close:hover {
+  background: #eff2f5;
+  color: #1f2328;
+}
+
+.siji-body {
+  padding: 0 14px 4px;
+}
+
+.siji-boundary {
+  margin: 0 0 6px;
+  color: #59636e;
+  font-size: 12px;
+}
+
+.siji-score-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  color: #59636e;
+  font-size: 12px;
+}
+
+.siji-score {
+  color: #59636e;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.siji-score-total {
+  font-size: 11px;
+}
+
+.siji-details {
+  margin-top: 6px;
+  border-top: 1px solid #e2e7ec;
+}
+
+.siji-details-summary {
+  min-height: 44px;
+  padding: 11px 2px;
+  color: #59636e;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.siji-details-summary:hover {
+  color: #0969da;
+}
+
+.siji-details-body {
+  padding: 0 0 10px;
+}
+
+.siji-section-title {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.siji-reason-list {
+  display: grid;
+  gap: 5px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.siji-reason-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #f6f8fa;
+  font-size: 12px;
+}
+
+.siji-reason-text {
+  color: #31383f;
+}
+
+.siji-reason-points {
+  flex: none;
+  color: #59636e;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.siji-chart-frame {
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  background: #f6f8fa;
+}
+
+.siji-chart {
+  display: block;
+  width: 100%;
+  height: 96px;
+}
+
+.siji-chart-grid {
+  stroke: #d1d9e0;
+  stroke-width: 1;
+}
+
+.siji-chart-threshold {
+  stroke: #bf8700;
+  stroke-width: 1.25;
+  stroke-dasharray: 5 4;
+}
+
+.siji-chart-line {
+  fill: none;
+  stroke: #0969da;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.siji-chart-label {
+  fill: #59636e;
+  font-size: 10px;
+  font-family: inherit;
+}
+
+.siji-settings {
+  padding-top: 8px;
+  border-top: 1px solid #e2e7ec;
+}
+
+.siji-settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.siji-field {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.siji-field-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  color: #59636e;
+  font-size: 11px;
+}
+
+.siji-sensitivity-value {
+  color: #1f2328;
+}
+
+.siji-input,
+.siji-range {
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+}
+
+.siji-input {
+  padding: 5px 8px;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1f2328;
+  font: inherit;
+}
+
+.siji-range {
+  accent-color: #0969da;
+  cursor: pointer;
+}
+
+.siji-settings-note {
+  margin: 2px 0 8px;
+  color: #59636e;
+  font-size: 11px;
+}
+
+.siji-status {
+  margin: 8px 0;
+  padding: 8px;
+  border: 1px solid #ff818266;
+  border-radius: 6px;
+  background: #fff1f0;
+  color: #a40e26;
+  font-size: 12px;
+}
+
+.siji-footer {
+  display: flex;
+  gap: 8px;
+  padding: 8px 14px 12px;
+  background: #ffffff;
+}
+
+.siji-button {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  background: #f6f8fa;
+  color: #1f2328;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.siji-button:hover {
+  background: #eef1f4;
+}
+
+.siji-button-primary {
+  border-color: #1f883d;
+  background: #1f883d;
+  color: #ffffff;
+}
+
+.siji-button-primary:hover {
+  background: #1a7f37;
+}
+
+.siji-button-muted {
+  width: 100%;
+  background: transparent;
+  color: #59636e;
+}
+
+.siji-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.siji-overlay button:focus-visible,
+.siji-overlay input:focus-visible,
+.siji-overlay summary:focus-visible {
+  outline: 2px solid #0969da;
+  outline-offset: 2px;
+}
+
+@media (max-width: 520px) {
+  .siji-overlay {
+    padding: 4vw;
+  }
+
+  .siji-dialog {
+    width: min(92vw, 340px);
+    max-width: 340px;
+    max-height: 80vh;
+  }
+}
+
+@media (max-width: 340px) {
+  .siji-settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .siji-dialog {
+    animation: siji-enter 120ms ease-out;
+  }
+
+  @keyframes siji-enter {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}

@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "caseId": "delidata-wason-table12-constructive",
+  "title": "DeliData：三人讨论 Wason 卡片选择任务",
+  "language": "en",
+  "source": {
+    "paper": "DeliData: A dataset for deliberation in multi-party problem solving",
+    "authors": [
+      "Georgi Karadzhov",
+      "Tom Stafford",
+      "Andreas Vlachos"
+    ],
+    "publication": "Proceedings of the ACM on Human-Computer Interaction, 7(CSCW2), 2023",
+    "doi": "https://doi.org/10.1145/3610056",
+    "url": "https://arxiv.org/html/2108.05271v3",
+    "location": "Appendix B, Table 12: Constructive conversation ending in a correct solution",
+    "corpus": "500 group dialogues and approximately 14k utterances",
+    "speakerNames": "Pseudonymous animal names supplied by the paper",
+    "transcription": "English utterances and DeliAnnotation labels transcribed from Table 12 without rewriting",
+    "note": "The public research conversation is test evidence, not a Siji user's private conversation."
+  },
+  "fixturePolicy": {
+    "canonicalFor": [
+      "star-phrase extraction",
+      "source-quote preservation",
+      "alternative-solution separation",
+      "question-reason-solution relations",
+      "semantic-cluster regression tests",
+      "original-evidence recall tests"
+    ],
+    "notFor": [
+      "forgetting-probability estimation",
+      "keystroke or pause modeling",
+      "psychological inference",
+      "Chinese tokenization accuracy",
+      "claiming that semantic similarity proves logical equivalence"
+    ],
+    "translationRule": "displayZh values are condensed Chinese display translations, never verbatim source quotes. The English text and sourceTurnId remain authoritative.",
+    "reuseRule": "Future starfall and conversation-structure tests should use this public case before adding invented dialogue. Task-specific tests may still use minimal synthetic inputs."
+  },
+  "task": {
+    "rule": "All cards with vowels on one side have an even number on the other?",
+    "question": "Which cards should you turn to test the rule?"
+  },
+  "turns": [
+    {
+      "id": "turn-01",
+      "speaker": "Beaver",
+      "text": "I think we should check all four cards.",
+      "isProbing": "NPD",
+      "role": "Solution",
+      "additionalLabels": ["complete_solution"]
+    },
+    {
+      "id": "turn-02",
+      "speaker": "Bee",
+      "text": "I am going with the last 2",
+      "isProbing": "NPD",
+      "role": "Solution",
+      "additionalLabels": ["complete_solution"]
+    },
+    {
+      "id": "turn-03",
+      "speaker": "Narwhal",
+      "text": "At the very least we should definitely include the 3rd card.",
+      "isProbing": "NPD",
+      "role": "Solution",
+      "additionalLabels": ["partial_solution"]
+    },
+    {
+      "id": "turn-04",
+      "speaker": "Beaver",
+      "text": "Ok, anything else?",
+      "isProbing": "Probing",
+      "role": "Moderation",
+      "additionalLabels": []
+    },
+    {
+      "id": "turn-05",
+      "speaker": "Bee",
+      "text": "Why A?",
+      "isProbing": "Probing",
+      "role": "Reasoning",
+      "additionalLabels": []
+    },
+    {
+      "id": "turn-06",
+      "speaker": "Narwhal",
+      "text": "The rule is that all cards with a vowel on one side have an even number on the other side.",
+      "isProbing": "NPD",
+      "role": "Solution",
+      "additionalLabels": []
+    },
+    {
+      "id": "turn-07",
+      "speaker": "Narwhal",
+      "text": "Well, our third card is a vowel to start with. We do not know what is on the other side of that card. If we flip our only apparent vowel and we find an even number, that is a pretty good indication to the rule right off the start.",
+      "isProbing": "NPD",
+      "role": "Reasoning",
+      "additionalLabels": ["partial_solution"]
+    },
+    {
+      "id": "turn-08",
+      "speaker": "Beaver",
+      "text": "ok",
+      "isProbing": "NPD",
+      "role": "Agree",
+      "additionalLabels": []
+    },
+    {
+      "id": "turn-09",
+      "speaker": "Bee",
+      "text": "makes sense",
+      "isProbing": "NPD",
+      "role": "Agree",
+      "additionalLabels": []
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Narwhal",
+      "text": "None of the other cards would do us any good to flip them over because they are either an odd number or a consonant.",
+      "isProbing": "NPD",
+      "role": "Reasoning",
+      "additionalLabels": []
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Narwhal",
+      "text": "So A is the way to go.",
+      "isProbing": "NPD",
+      "role": "Solution",
+      "additionalLabels": ["complete_solution"]
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Bee",
+      "text": "sounds good to me.",
+      "isProbing": "NPD",
+      "role": "Agree",
+      "additionalLabels": []
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Beaver",
+      "text": "A it is,",
+      "isProbing": "NPD",
+      "role": "Agree",
+      "additionalLabels": ["complete_solution"]
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Bee",
+      "text": "Thanks for the help,",
+      "isProbing": null,
+      "role": null,
+      "additionalLabels": []
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Narwhal",
+      "text": "Thanks for being willing to listen!",
+      "isProbing": null,
+      "role": null,
+      "additionalLabels": []
+    }
+  ],
+  "expectedStarfall": {
+    "status": "manually_structured_test_expectation_not_paper_annotation",
+    "starNodes": [
+      {
+        "id": "solution-all-four",
+        "sourceTurnId": "turn-01",
+        "text": "check all four cards",
+        "displayZh": "检查全部四张牌",
+        "kind": "candidate_solution"
+      },
+      {
+        "id": "solution-last-two",
+        "sourceTurnId": "turn-02",
+        "text": "the last 2",
+        "displayZh": "翻最后两张牌",
+        "kind": "candidate_solution"
+      },
+      {
+        "id": "solution-third-card",
+        "sourceTurnId": "turn-03",
+        "text": "include the 3rd card",
+        "displayZh": "至少包括第三张牌",
+        "kind": "candidate_solution"
+      },
+      {
+        "id": "question-why-a",
+        "sourceTurnId": "turn-05",
+        "text": "Why A?",
+        "displayZh": "为什么选 A？",
+        "kind": "question"
+      },
+      {
+        "id": "reason-third-vowel",
+        "sourceTurnId": "turn-07",
+        "text": "our third card is a vowel",
+        "displayZh": "第三张是元音牌",
+        "kind": "reason"
+      },
+      {
+        "id": "reason-back-unknown",
+        "sourceTurnId": "turn-07",
+        "text": "We do not know what is on the other side of that card",
+        "displayZh": "背面仍然未知",
+        "kind": "uncertainty"
+      },
+      {
+        "id": "reason-flip-tests-rule",
+        "sourceTurnId": "turn-07",
+        "text": "If we flip our only apparent vowel and we find an even number, that is a pretty good indication to the rule right off the start.",
+        "displayZh": "翻开元音牌可检验规则",
+        "kind": "conditional_reason"
+      },
+      {
+        "id": "reason-other-cards",
+        "sourceTurnId": "turn-10",
+        "text": "None of the other cards would do us any good to flip them over",
+        "displayZh": "其他牌帮助不大",
+        "kind": "reason"
+      },
+      {
+        "id": "solution-final-a",
+        "sourceTurnId": "turn-11",
+        "text": "A is the way to go",
+        "displayZh": "共同结论：翻 A",
+        "kind": "group_solution"
+      }
+    ],
+    "eventOnlyTurns": [
+      {"turnId": "turn-04", "eventType": "moderation"},
+      {"turnId": "turn-08", "eventType": "agreement"},
+      {"turnId": "turn-09", "eventType": "agreement"},
+      {"turnId": "turn-12", "eventType": "agreement"},
+      {"turnId": "turn-13", "eventType": "group_confirmation"},
+      {"turnId": "turn-14", "eventType": "courtesy"},
+      {"turnId": "turn-15", "eventType": "courtesy"}
+    ],
+    "referenceOnlyTurns": [
+      {"turnId": "turn-06", "eventType": "task_rule_restatement"}
+    ],
+    "clusters": [
+      {
+        "id": "candidate-solutions",
+        "labelZh": "候选翻牌方案",
+        "nodeIds": ["solution-all-four", "solution-last-two", "solution-third-card"],
+        "mustKeepDistinct": true,
+        "reason": "These alternatives are semantically close but not interchangeable answers."
+      },
+      {
+        "id": "supporting-reasons",
+        "labelZh": "选择 A 的理由",
+        "nodeIds": ["reason-third-vowel", "reason-back-unknown", "reason-flip-tests-rule", "reason-other-cards"],
+        "mustKeepDistinct": false
+      }
+    ],
+    "relations": [
+      {"from": "solution-all-four", "to": "solution-last-two", "type": "alternative_to"},
+      {"from": "solution-all-four", "to": "solution-third-card", "type": "alternative_to"},
+      {"from": "solution-last-two", "to": "solution-third-card", "type": "alternative_to"},
+      {"from": "question-why-a", "to": "solution-third-card", "type": "probes"},
+      {"from": "reason-third-vowel", "to": "solution-final-a", "type": "supports"},
+      {"from": "reason-back-unknown", "to": "solution-final-a", "type": "supports"},
+      {"from": "reason-flip-tests-rule", "to": "solution-final-a", "type": "supports"},
+      {"from": "reason-other-cards", "to": "solution-final-a", "type": "supports"}
+    ],
+    "confirmationTurnIds": ["turn-12", "turn-13"]
+  }
+}

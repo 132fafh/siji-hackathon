@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="思迹：AI 提问澄清与想法留痕工具。先留痕，再澄清，后回答。">
+<title>思迹 · 项目简介</title>
+<style>
+:root{color-scheme:dark;--bg:#090d13;--panel:#101720;--text:#e8eeeb;--muted:#9aa9a7;--accent:#88b5a7;--line:rgba(150,180,171,.16)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,"Microsoft YaHei",sans-serif;line-height:1.85}main{width:min(920px,calc(100% - 36px));margin:0 auto;padding:64px 0 80px}header{padding:34px 0 42px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--accent);font-size:13px;letter-spacing:.16em}h1{margin:12px 0 10px;font-size:clamp(36px,6vw,62px);font-weight:500;letter-spacing:.08em}h2{margin:0 0 14px;font-size:22px;font-weight:500}h3{margin:0 0 6px;font-size:16px;font-weight:500}p{margin:0 0 12px;color:var(--muted)}.lead{max-width:720px;font-size:19px;color:#c3cfca}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.actions a{display:inline-flex;align-items:center;min-height:44px;padding:8px 17px;border:1px solid var(--line);border-radius:9px;color:var(--text);text-decoration:none}.actions a.primary{border-color:#52796f;background:#18352e}.actions a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}section{padding:34px 0;border-bottom:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{padding:20px;border:1px solid var(--line);border-radius:13px;background:rgba(16,23,32,.65)}.card p{font-size:14px}.number{display:block;margin-bottom:12px;color:var(--accent);font-size:13px}.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:#c1cec9}.flow span{padding:5px 10px;border:1px solid var(--line);border-radius:7px}.flow b{color:#5f7770;font-weight:400}.checks{padding-left:20px;color:var(--muted)}.checks li{margin:7px 0}.note{padding:16px 18px;border-left:2px solid #6d9c8d;background:rgba(70,110,96,.08);color:#b7c6c0}.small{font-size:13px}footer{padding-top:24px;color:#71827e;font-size:13px}@media(max-width:700px){main{padding-top:34px}.grid{grid-template-columns:1fr}h2{font-size:20px}.lead{font-size:17px}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">DOAI · 思迹项目简介</div>
+    <h1>思迹</h1>
+    <p class="lead">不是更快生成另一个答案，而是帮助人留住原始想法、看清问题如何形成，并始终保留判断权。</p>
+    <div class="actions"><a class="primary" href="/?v=boundary#/demo/delidata">打开在线 Demo</a><a href="/watch-demo.html">观看 2 分钟 Demo</a><a href="/?v=boundary">先写下自己的想法</a></div>
+  </header>
+  <section>
+    <h2>要解决的问题</h2>
+    <p>在长对话和长篇回答中，人很容易丢失最初那句尚未组织好的想法。思迹把“先留痕，再澄清，后回答”做成完整流程：原始表达不会被 AI 覆盖，澄清最多主动进行三轮，确认问题后才生成回答，空白时允许暂停、返回和恢复。</p>
+    <div class="flow"><span>原话留痕</span><b>→</b><span>轻量澄清</span><b>→</b><span>星落与网络</span><b>→</b><span>可控扩展</span><b>→</b><span>确认后回答</span></div>
+  </section>
+  <section>
+    <h2>交互与算法如何结合</h2>
+    <div class="grid">
+      <article class="card"><span class="number">01 · 小型批准框</span><h3>只在用户需要时出现</h3><p>插件融合停顿、草稿和当前对话上下文，以低打扰批准框邀请用户进入思迹。评分是可解释的本地启发式，不是遗忘概率。</p></article>
+      <article class="card"><span class="number">02 · 星落与无框网络</span><h3>保留思考的自然形态</h3><p>公开原话形成星落，点击后进入无框思维网络。新节点从父节点连续展开，旧节点缓慢避让，不强迫混乱立即变成僵硬结构。</p></article>
+      <article class="card"><span class="number">03 · 用户控制总率</span><h3>扩展规模由人决定</h3><p>边界扩张总率上限可在 100%–500% 间调节。待确认候选占额度，拒绝后释放；达到上限时不再请求模型。</p></article>
+    </div>
+  </section>
+  <section>
+    <h2>透明的技术路径</h2>
+    <ul class="checks">
+      <li><strong>候选排序：</strong>TextRank、个性化 PageRank、MMR 和当前会话偏好共同参与，不建立固定人格画像。</li>
+      <li><strong>路径保护：</strong>对全图和响应内候选去重，保留数字与否定差异；重复路径不重复生成。</li>
+      <li><strong>平滑布局：</strong>节点斥力、连线弹力、边界约束与渐进展开共同维持心理地图。</li>
+      <li><strong>来源分离：</strong>用户原话、公开案例、AI 候选和用户修改在数据结构与视觉上分别标注。</li>
+    </ul>
+    <p class="small">这些是可解释的组合实现，不宣称原创基础算法，也不把字面相似度冒充真实语义理解。</p>
+  </section>
+  <section>
+    <h2>可复核的交付</h2>
+    <ul class="checks">
+      <li>公开 DeliData 案例可直接体验，不需要账号、私人聊天或 API Key。</li>
+      <li>229 项/组应用、流程、接口、插件与公开数据检查通过。</li>
+      <li>支持历史记录、继续、重命名、删除和单次 Markdown 导出。</li>
+      <li>真实 AI 服务通过后端环境变量配置，密钥不进入前端或扩展。</li>
+    </ul>
+  </section>
+  <section>
+    <h2>明确的能力边界</h2>
+    <p class="note">默认交付使用明确标注的本地启发式演示，不宣称真实遗忘检测、读心、高精度个性化或所有 AI 网站均已实测兼容。真实外部模型尚未完成生产联调；后续最值得验证的是人工标注数据、跨站点稳定性和语义扩展质量。</p>
+  </section>
+  <footer>思迹 · 先留痕，再澄清，后回答。项目说明与演示均为本地优先设计。</footer>
+</main>
+</body>
+</html>
