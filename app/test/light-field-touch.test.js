@@ -32,5 +32,7 @@ test('移动端扩大触控热区并将长句限制为两行', () => {
   assert.match(mobile[0], /\.light-bubble::before/);
   assert.match(mobile[0], /inset: -10px/);
   assert.match(mobile[0], /-webkit-line-clamp: 2/);
-  assert.match(mobile[0], /max-width: 112px/);
+  assert.match(mobile[0], /width: 96px/);
+  assert.match(mobile[0], /max-width: 22vw/);
+  assert.match(mobile[0], /\.light-bubble\.is-right-edge \.light-bubble-text,\n  \.light-bubble\.is-left-edge \.light-bubble-text \{[^}]*left: 50%;[^}]*text-align: center;[^}]*transform: translateX\(-50%\)/);
 });

@@ -107,11 +107,13 @@ node --test tests/cloud-deployment.test.js
 
 ### Cloudflare Pages
 
-1. 在 Workers & Pages 创建应用，选择 Pages 并连接 `132fafh/siji-hackathon`；
-2. 构建命令填写 `node --version`，构建输出目录填写 `app`，不选择框架预设；
-3. `functions/api/[[path]].js` 提供五个演示 API 与健康检查，静态 `app/mock-kimi.html` 与插件模拟页保持同步；
+1. 运行 `node tools/build-cloudflare.js`，生成 `tools/cloudflare-pages/`。目录根部是前端静态文件，`_worker.js` 由 `npx esbuild` 将同一套 API 打成单个 Worker；构建工具只用于打包，不增加本地运行依赖；
+2. Windows 可再运行 `powershell -ExecutionPolicy Bypass -File tools/package-cloudflare.ps1`，生成使用标准 `/` 路径分隔符的 `tools/cloudflare-pages.zip`。ZIP 根目录必须直接包含 `index.html`，不能再包一层文件夹；
+3. 在 Workers & Pages 选择 Pages 的 **Drag and drop your files**，上传该目录或 ZIP。按 [Cloudflare 直传说明](https://developers.cloudflare.com/pages/get-started/direct-upload/)，控制台不编译上传的 `functions` 目录，但支持 `_worker.js`；因此这里使用[高级模式](https://developers.cloudflare.com/pages/functions/advanced-mode/)，API 交给 Worker，其他请求交给 `env.ASSETS`；
 4. 部署后依次检查 `/api/health`、`/?v=boundary#/demo/delidata`、`/project-brief.html` 和 `/watch-demo.html`；
 5. 默认不配置密钥。需要真实模型时，才在 Pages 的服务端设置中添加 `SIJI_API_BASE / SIJI_API_KEY / SIJI_MODEL / SIJI_TIMEOUT_MS`。
+
+也可以连接 `132fafh/siji-hackathon` 自动构建：不选择框架预设，构建命令为 `node --version`，静态输出目录为 `app`，根目录的 `functions/` 会被 Pages 自动使用。
 
 ### Vercel 备用
 

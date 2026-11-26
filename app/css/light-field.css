@@ -576,25 +576,22 @@
   .light-bubble-text {
     left: 50%;
     top: calc(50% + 18px);
-    max-width: 112px;
+    width: 96px;
+    max-width: 22vw;
     font-size: 13px;
     line-height: 1.4;
     text-align: center;
     transform: translateX(-50%);
     -webkit-line-clamp: 2;
   }
-  .light-bubble.is-right-edge .light-bubble-text {
-    right: calc(50% + 8px);
-    left: auto;
-    text-align: right;
-    transform: none;
-  }
+  .light-bubble.is-right-edge .light-bubble-text,
   .light-bubble.is-left-edge .light-bubble-text {
-    left: calc(50% + 8px);
-    text-align: left;
-    transform: none;
+    right: auto;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
   }
-  .light-bubble.is-current .light-bubble-text { top: calc(50% + 32px); max-width: 150px; font-size: 14px; }
+  .light-bubble.is-current .light-bubble-text { top: calc(50% + 32px); width: 140px; max-width: 38vw; font-size: 14px; }
   .light-field-exit { right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); width: 42px; height: 42px; }
 }
 

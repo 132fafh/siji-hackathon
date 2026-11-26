@@ -12,6 +12,15 @@ Kimi 页面输入
 → 思迹继续澄清与留痕
 ```
 
+## 已发布交付
+
+- [在线 Demo（公开 DeliData 星落）](https://siji-hackathon.pages.dev/?v=boundary#/demo/delidata)
+- [在线项目简介](https://siji-hackathon.pages.dev/project-brief.html)
+- [69 秒真实操作录屏（Bilibili）](https://www.bilibili.com/video/BV1LQykzCEih)
+- [本地播放与下载页](https://siji-hackathon.pages.dev/watch-demo.html)
+
+公开托管不依赖本机服务。默认是明确标注的规则演示，不需要评委提供账号或 API Key，不宣称真实遗忘检测或读心。
+
 ## 快速运行
 
 ### 1. 启动思迹与演示后端
@@ -163,6 +172,16 @@ node synthetic-smoke.js
 星点提取、分裂、星团和会话结构测试优先复用 `tests/fixtures/delidata-wason-constructive.json`，不再临时编造对话代替公开案例。案例来自 [DeliData 论文附录 Table 12](https://arxiv.org/html/2108.05271v3)，含 15 条英文原话及论文角色标注；中文只是展示译文，`expectedStarfall` 是本项目的人工测试预期，不是论文标注。测试固定检查“三个语义相近的候选方案不得合并”“原话可追溯”“同意与礼貌用语不成星”等边界。当前 demo 字面检索将 `turn-06` 排在目标 `turn-07` 前，该已知排序限制已记录为后续向量检索的对照，不冒充语义检索结果。
 
 `tests/browser-flow.js` 还提供真实浏览器联调：先用 `--remote-debugging-port=9222` 启动加载扩展的 Edge，再运行 `node tests/browser-flow.js`。本交付已在模拟页及真实 `kimi.com` 上实测通过“输入 → 停顿 → 弹窗 → 进入思迹 → 原始表达保存”。
+
+`node tests/online-smoke.js` 对已部署网站做真实公网验收，覆盖五个 API、页面脚本、项目简介、模拟页和实际视频内容；默认检查 `https://siji-hackathon.pages.dev`，也可用 `SIJI_BASE_URL` 指定其他部署地址。
+
+## 在线托管
+
+- **Cloudflare Pages**：运行 `node tools/build-cloudflare.js` 生成可直接上传的 `tools/cloudflare-pages/`，复制静态页面并通过 `npx esbuild` 将同一套 API 打包为 `_worker.js`；Windows 可用 `tools/package-cloudflare.ps1` 生成标准路径 ZIP。也支持连接 GitHub，以 `node --version` 构建、`app` 为输出目录。
+- **Vercel 备用**：导入仓库即可使用 `vercel.json` 与 `api/[...path].js`，不需要安装依赖。
+- **Render 备用**：使用根目录 `render.yaml` 和原有 Node 启动方式。
+- `server/api-core.js` 是三种方式共用的接口逻辑；默认不配置模型密钥，保持明确标注的本地规则演示。
+- 真实 AI 密钥只填写在托管平台的服务端环境变量中。正式链接和验证状态见 `delivery/提交链接.md`，部署细节见 `server/README.md`。
 
 ## 目录
 

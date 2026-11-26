@@ -6,6 +6,7 @@ node_modules/
 tools/*.exe
 tools/edge-record-profile*/
 tools/recording-work/
+tools/cloudflare-pages/
 delivery/*.mp4
 delivery/*.webm
 .DS_Store
